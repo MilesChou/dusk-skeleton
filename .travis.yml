@@ -1,0 +1,26 @@
+language: php
+
+php:
+- 7.1
+- 7.2
+- nightly
+
+matrix:
+  allow_failures:
+  - php: nightly
+
+branches:
+  only:
+  - master
+
+install:
+- composer install --prefer-dist
+
+script:
+- exit 0
+
+cache:
+  directories:
+  # See https://blog.wyrihaximus.net/2015/07/composer-cache-on-travis/
+  - $HOME/.composer/cache/files
+  - vendor
